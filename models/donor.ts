@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
+require("dotenv").config();
 mongoose
-  .connect(
-    "mongodb+srv://rayhan:rayhan123@cluster0.helgf.mongodb.net/rokto-app"
-  )
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/donor")
   .then(() => console.log("Database connected"))
   .catch((e) => console.log("Error connecting db", e.message));
 
